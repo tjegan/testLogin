@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+  <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico"> -->
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <title>Cargill - Contracts</title>
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    #root {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrapper {
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div class="site-wrapper">
+    <div class="body-wrapper">
+      <div class="loader-wrapper" style="display: none;">
+        <div class="shroud">
+          <div class="ldr-ripple">
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <header class="body-wrapper--left">
+        <div data-componentid="GlobalNav" data-component="GlobalNav" data-config="GlobalNav-config" data-render="true"></div>
+        <script type="application/json" id="GlobalNav-config">
+            {
+                "data": {
+                  "componentId": "GlobalNav",
+                  "logo": {
+                    "href": "/",
+                    "title": "Go to Cargill.com",
+                    "target": "_self",
+                    "children": [
+                      {
+                        "type": "image",
+                        "image": {
+                          "src": "/logo.svg",
+                          "alt": "Go to Cargill.com",
+                          "height": 100,
+                          "width": 100
+                        }
+                      }
+                    ]
+                  },
+                  "items": [
+                    {
+                      "id": "1003",
+                      "type": "dashboard",
+                      "link": {
+                        "href": "/dashboard",
+                        "title": "Dashboard",
+                        "target": "_self",
+                        "children": [
+                          {
+                            "type": "label",
+                            "label": "Dashboard"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "id": "1002",
+                      "type": "contracts",
+                      "link": {
+                        "id": "contracts",
+                        "href": "/contracts",
+                        "title": "Contracts",
+                        "target": "_self",
+                        "children": [
+                          {
+                            "type": "label",
+                            "label": "Contracts"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "id": "2000",
+                      "type": "invoices",
+                      "link": {
+                       "id": "invoices",
+                        "href": "/invoices",
+                        "target": "_self",
+                        "title": "Invoices",
+                        "children": [
+                          {
+                            "type": "label",
+                            "label": "Invoices"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "id": "3000",
+                      "type": "inventory",
+                      "link": {
+                        "id": "inventory",
+                        "href": "/inventory",
+                        "title": "Inventory",
+                        "target": "_self",
+                        "children": [
+                          {
+                            "type": "label",
+                            "label": "Inventory"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "id": "3001",
+                      "type": "articles",
+                      "link": {
+                        "id": "articles",
+                        "href": "/articles",
+                        "title": "Articles",
+                        "target": "_self",
+                        "children": [
+                          {
+                            "type": "label",
+                            "label": "Market Information"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "id": "separator",
+                      "type": "separator"
+                    },
+                    {
+                      "id": "5000",
+                      "type": "user",
+                      "link": {
+                        "id": "user",
+                        "href": "/user",
+                        "title": "User",
+                        "target": "_self",
+                        "children": [
+                          {
+                            "type": "label",
+                            "label": "Camila Anderson"
+                          },
+                          {
+                            "type": "label",
+                            "label": "Goofd form Inc."
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "id": "6000",
+                      "type": "management",
+                      "link": {
+                        "id": "management",
+                        "href": "/management",
+                        "title": "Management",
+                        "target": "_self",
+                        "children": [
+                          {
+                            "type": "label",
+                            "label": "User Management"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "id": "1000",
+                      "type": "support",
+                      "link": {
+                        "id": "support",
+                        "href": "/support",
+                        "title": "Support",
+                        "target": "_self",
+                        "children": [
+                          {
+                            "type": "label",
+                            "label": "Support"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "permissions": {
+                    "2000": {
+                      "roles": ["DXP_DSC_Accounts", "DXP_DSC_TE", "DXP_DSC_Operations"]
+                    }
+                  }
+                }
+              }
+        </script>
+      </header>
+      <div class="body-wrapper--main">
+        <div id="appshell" class="app-wrapper">
+          <div data-componentid="app" data-component="app" data-config="app-config" data-render="true"></div>
+          <script type="application/json" id="app-config">
+          {
+            "data": {
+              "componentId": "App",
+              "componentType": "nested",
+              "routes": {
+                "/contracts": [
+                  {
+                    "component": "contract",
+                    "configId": "contract-config"
+                  }],
+                "/contracts/:Id/:number":[
+                  {
+                    "component": "contractdetail",
+                    "configId": "Contractdetail-config"
+                  }
+                ]
+              }
+            }
+          }
+        </script>
+          <script type="application/json" id="Contractdetail-config">
+          {
+            "data": {
+              "componentId": "contractdetail",
+              "componentType": "nested",
+              "routes": {
+                "overview": [
+                  {
+                    "component": "overview",
+                    "configId": "overview-config"
+                  }
+                ],
+                "payments": [
+                  {
+                    "component": "payments",
+                    "configId": "payments-config"
+                  }
+                ],
+                "invoices": [
+                  {
+                    "component": "invoices",
+                    "configId": "invoices-config"
+                  }
+                ],
+                "shipping": [
+                  {
+                    "component": "shipping",
+                    "configId": "shipping-config"
+                  }
+                ],
+                "inventory": [
+                  {
+                    "component": "inventory",
+                    "configId": "inventory-config"
+                  }
+                ]
+              },
+              "labels": {
+                "cakNo": "Cak No.",
+                "backToContracts": "Back To All Contracts",
+                "backToDetails": "Back To Contract Details",
+                "tabLabels": ["Overview", "Payments", "Shipping", "Inventory", "Invoices"],
+                "currentlyViewing": "Currently Viewing"
+              },
+              "permissions": {
+                "showName": {
+                  "roles": ["DXP_DSC_Accounts", "DXP_DSC_TE", "DXP_DSC_Operations"]
+                }
+              }
+            }
+          }
+        </script>
+          <script type="application/json" id="overview-config">
+          {
+            "data": {
+              "componentId": "overview",
+              "labels": {
+                "title": "Overview",
+                "downloadContract": "Download Contract",
+                "uploadSignedContract": "Upload Signed Contract",
+                "remaining": "Remaining (MT)",
+                "contractTotal": "Contract Total (MT)",
+                "inTransit": "In Transit (MT)",
+                "fulfilled": "Fulfilled (MT)",
+                "cakDate": "Cak Date",
+                "expires": "Expires",
+                "status": "Status",
+                "commodity": "Commodity",
+                "priceWeightUnit": "Price Weight Unit",
+                "currency": "Currency",
+                "deliveryBasis": "Delivery Basis",
+                "packageType": "Package Type",
+                "price": "Price (VND/MT)",
+                "tolerance": "Tolerance",
+                "paymentTerms": "Payment Terms",
+                "storageTerms": "Storage Term",
+                "statusUpdated": "The status has been updated.",
+                "statusError": "There was a problem. Please try again later.",
+                "fileUploadErr":"Network error while uploading file",
+                "documentKeyErr":"Failed to update document key for uploaded document",
+                "maxFileSize":"2097152",
+                "fileSizeErr": "File size cannot exceed 2MB",
+                "fileTypeErr": "Invalid file format",
+                "fileUploaded": "File upload successful",
+                "statusOptions": [
+                  {
+                    "label": "Unsigned",
+                    "value": "USGN"
+                  },
+                  {
+                    "label": "Signed",
+                    "value": "SGN"
+                  },
+                  {
+                    "label": "Completed",
+                    "value": "CMP"
+                  }
+                ]
+              },
+              "permissions": {
+                "canUpdateStatus": {
+                  "roles": ["DXP_DSC_Accounts"]
+                },
+                "canUploadContract": {
+                  "roles": ["DXP_DSC_TE"]
+                }
+
+              }
+            }
+          }
+        </script>
+          <script type="application/json" id="payments-config">
+          {
+            "data": {
+              "componentId": "payments",
+              "labels": {
+                "title": "Payments",
+                "paymentUpload": "Upload a Payment",
+                "paymentAmount": "Amount",
+                "paymentStatus": "Status",
+                "paymentStatusPaid": "Paid",
+                "paymentStatusUnpaid": "Unpaid",
+                "paymentStatusVerifying": "Verifying",
+                "paymentDate": "Payment Date / Due Date",
+                "paymentStatusDate": "Status / Due Date",
+                "paymentSighted": "Payment Sighted",
+                "paymentReminder": "Payment Reminder",
+                "totalContractValue": "Total Contract Value",
+                "totalContractQuantity": "Total Contract Quantity (MT)",
+                "totalApprovedQuantity": "Total Approved Quantity (MT)",
+                "paymentReminderToastMessage": "Your notification will be sent to {name} for their {contract} contract.",
+                "paymentSightedToastMessage": "Your notification will be sent to {name} for their {contract} contract.",
+                "addQtyToTotalApproved": "Add Qty to Total Approved",
+                "addQtyApprovedMessage": "This will officially add available product to be ordered and fulfilled to the customer. You will be asked to confirm, but will not be able to lorem ipsum dolor sit amet consecteteur.",
+                "quantityToAdd": "Quantity to Add",
+                "addQuantity": "Add Quantity",
+                "addQuantityPlaceholder": "Add Quantity",
+                "addQtyConfirmationMessage": "Quantity Added successfully",
+                "addQtyConfirmationDetails": "Quantity Added successfully",
+                "addQtyOkay": "Okay",
+                "modifyPaymentDueDate": "Modify Payment Due Date",
+                "modifyAmountDate": "Update Payment Amount",
+                "dueDatePlaceholder": "Select a Date",
+                "uploadNewPayment": "Upload New Payment",
+                "uploadBankName": "Bank Name",
+                "uploadBranchName": "Branch Name",
+                "uploadAmount": "Payment Amount",
+                "paymentAmountPlaceHolder": "Enter Payment Amount",
+                "uploadTransaction": "Transaction Reference #",
+                "uploadDate": "Payment Date",
+                "uploadTime": "Payment Time",
+                "uploadFiletypes": "JPG, GIF, PNG, PDF",
+                "uploadFile": "Upload as a File",
+                "uploadSave": "Save Payment",
+                "uploadSubmitted": "Payment submitted.",
+                "submit": "Submit",
+                "save": "Save",
+                "maxFileSize":"2097152",
+                "dropdownOptions": {
+                  "modify":"Modify Schedule Payment",
+                  "edit":"Edit"
+                },
+                "confirmation": {
+                  "confirmationMessage": "Payment has been submitted successfully.",
+                  "modifyPaymentDueDate": "Due date has been updated.",
+                  "ok": "Okay"
+                },
+                "errorMessages": {
+                  "generalError": "Oops! Something was missed or entered incorrectly. Please try again.",
+                  "maxChar12": "Exceeded maximum 12 characters.",
+                  "maxChar20": "Exceeded maximum 20 characters.",
+                  "maxChar50":"Exceeded maximum 50 characters.",
+                  "decimalPlaces": "Exceeded 3 decimal places.",
+                  "addQtyValidation": "Total Approved Quantity cannot be more than Total Contract Quantity.",
+                  "dueDateValidation": "Please enter a valid date.",
+                  "paymentValidation": "Please enter a valid amount.",
+                  "timeValidation": "Please enter a valid time.",
+                  "filesizeValidation": "Your file must not exceed 2MB.",
+                  "bankName": "Bank Name is required.",
+                  "branchName": "Branch Name is required.",
+                  "paymentAmount": "Payment Amount is required.",
+                  "transactionRef": "Transaction Reference # is required.",
+                  "fileUploadErr": "File upload failed",
+                  "invalidTransactionRef":"Invalid Transaction Reference",
+                  "invalidBankName":"Invalid Bank Name",
+                  "invalidBranchName":"Invalid Branch Name"
+                }
+              },
+              "permissions": {
+                "hasAddNewApprovedQty": {
+                  "roles":["DXP_DSC_Commercial","DXP_DSC_Operations"]
+                },
+                "hasModifyPaymentDueDate": {
+                  "roles": ["DXP_DSC_Commercial"]
+                },
+                "hasCheckbox": {
+                  "roles": ["DXP_DSC_Customer"]
+                },
+                "hasPaymentReminder": {
+                  "roles": ["DXP_DSC_TE", "DXP_DSC_Accounts"]
+                },
+                "hasPaymentSighted": {
+                  "roles": ["DXP_DSC_Accounts"]
+                },
+                "hasPaymentUpload": {
+                  "roles": ["DXP_DSC_Accounts","DXP_DSC_Commercial"]
+                }
+              }
+            }
+          }
+        </script>
+          <script type="application/json" id="inventory-config">
+            {
+              "data": {
+                  "componentId": "inventory",
+                  "labels": {
+                      "title": "Inventory",
+                      "downloadAll": "Download All",
+                      "totalBarges": "Total Received by Barges (MT)",
+                      "totalTrucks": "Total Received by Trucks (MT)",
+                      "totalReceived": "Total Received (MT)",
+                      "currentStock": "Current Stock (MT)",
+                      "filterByKeyword": "Filter by Keyword",
+                      "noResults": "No Results Found.",
+                      "checkOut": "Check Out",
+                      "edit": "Edit",
+                      "tableHeaders": {
+                          "vehicleNumber": "Vehicle Number",
+                          "timeInTime": "Time In",
+                          "weightIn": "Weight In",
+                          "timeOutTime": "Time Out",
+                          "weightOut": "Weight Out",
+                          "netWeight": "Net Weight",
+                          "packaging": "Packaging",
+                          "vehicleType": "Vehicle Type",
+                          "location": "Location",
+                          "cakNo": "Cak No.",
+                          "commodity": "Commodity",
+                          "etaTime": "ETA/Arrived",
+                          "deliveredVolume": "Delivered Volume",
+                          "remarks": "Remarks"
+                      },
+                      "editModal": {
+                          "title": "Edit Inventory",
+                          "cakNo": "Cak No.",
+                          "weightIn": "Weight In",
+                          "weightOut": "Weight Out",
+                          "netWeight": "Net Weight",
+                          "vehicleNumber": "Vehicle No.",
+                          "dateIn": "Date In",
+                          "timeIn": "Time In",
+                          "dateOut": "Date Out",
+                          "timeOut": "Time Out",
+                          "packageType": "Package Type",
+                          "vehicleType": "Vehicle Type",
+                          "location": "Location",
+                          "eta": "ETA Date",
+						  "etaTime": "ETA Time",
+                          "remarks": "Remarks",
+                          "remarksPlaceHolder": "Enter Text",
+                          "deliveredVolume": "Delivered Volume",
+                          "commodity": "Commodity",
+                          "saveEdit": "Save",
+                          "confirmationTitle": "Save Confirmation",
+                          "editButton": "Go Back and Edit",
+                          "confirmButton": "Confirm Edit",
+                          "errorMessages": {
+                            "generalError": "Oops! Something was missed or entered incorrectly. Please try again.",
+                            "maxChar12": "Exceeded maximum 12 characters.",
+                            "maxChar30": "Exceeded maximum 30 characters.",
+                            "maxChar200": "Exceeded maximum 200 characters.",
+                            "qtyMinimum": "Please enter a value greater than zero.",
+                            "decimalPlaces": "Exceeded 3 decimal places.",
+                            "vehicleNo": "Vehicle Number is required",
+                            "vehicleNoInvalid":"Invalid vehicle number",
+                            "timeInDate": "Date In is required",
+                            "timeInTime": "Time In is empty / invalid",
+                            "timeOutDate": "Date Out is required",
+                            "timeOutTime": "Date In is empty / invalid",
+                            "etaTime": "ETA time is invalid",
+                            "packing": "Package Type is required",
+                            "vehicleType": "Vehicle Type is required",
+                            "location": "Location is required"
+                          },
+                          "options": {
+                            "packing":[
+                              {
+                                "label": "In bulk",
+                                "value": "In bulk"
+                              },
+                              {
+                                "label": "In bags",
+                                "value": "In bags"
+                              }
+                            ],
+                            "vehicleType": [
+                              {
+                                "label": "Truck",
+                                "value": "Truck"
+                              },
+                              {
+                                "label": "Barge",
+                                "value": "Barge"
+                              },
+                              {
+                                "label": "VN",
+                                "value": "VN"
+                              }
+                            ],
+                            "location": [
+                              {
+                                "label": "SITV",
+                                "value": "SITV"
+                              },
+                              {
+                                "label": "VTN",
+                                "value": "VTN"
+                              }
+                            ]
+                          }
+                      },
+                      "checkOutModal": {
+                          "title": "Check Out",
+                          "contractId": "Contract ID",
+                          "approvedQty": "Approved Quantity",
+                          "commodityType": "Commodity Type",
+                          "vehicleType": "Vehicle Type",
+                          "vehicleNo": "Vehicle Number",
+                          "weightOut": "Weight Out",
+                          "timeOut": "Time Out",
+                          "saveCheckOut": "Save Check Out",
+                          "confirmationTitle": "Check out submitted successfully",
+                          "editButton": "Go Back and Edit",
+                          "confirmButton": "Confirm Check Out",
+                          "timeIn":"Time In",
+                          "location":"Location",
+                          "weightIn":"Weight In",
+                          "errorMessages": {
+                            "generalError": "Oops! Something was missed or entered incorrectly. Please try again.",
+                            "maxChar12": "Exceeded maximum 12 characters.",
+                            "decimalPlaces": "Exceeded 3 decimal places.",
+                            "qtyMinimum": "Please enter a value greater than zero.",
+                            "weightOut": "Weight out is required",
+                            "vehicleNo":"Vehicle no is required",
+                            "vehicleNoInvalid":"Invalid vehicle number"
+                          }
+                        }
+                  },
+                  "permissions": {
+                      "hasEditCheckoutAccess": {
+                          "roles": [
+                              "DXP_DSC_Operations"
+                          ]
+                      }
+                  }
+              }
+            }
+        </script>
+          <script type="application/json" id="invoices-config">
+            {
+              "data": {
+                 "componentId":"invoices",
+                 "labels": {
+                    "invoiceTableHeader": {
+                       "invoiceNumber":"Invoice No.",
+                       "invoiceDate":"Invoice Date",
+                       "commodityQty":"Commodity Quantity",
+                       "invoiceAmount":"Invoice Amount"
+                    },
+                    "invoices":"Invoices",
+                    "addInvoice":"Add New Invoice",
+                    "noResultsFound": "No result found.",
+                    "dropdownOptions": {
+                       "download":"Download",
+                       "delete":"Delete"
+                    },
+                    "addNewInvoice": {
+                      "addInvoice":"Add New Invoice",
+                      "uploadFileLabel": "Upload File",
+                       "invoiceNo":"Invoice No.",
+                       "invoiceNoPlaceHolder":"Invoice No.",
+                       "invoiceDate":"Invoice Date",
+                       "invoiceDatePlaceholder":"Select a Date",
+                       "commodityQty":"Commodity Quantity",
+                       "commodityQtyPlaceholder":"Commodity Quantity",
+                       "invoiceAmount":"Invoice Amount",
+                       "invoiceAmountPlaceholder":"Invoice Amount",
+                       "allowedFormats": "PDF, PNG, JPEG",
+                       "maxFileSize":"2097152",
+                       "errorMessages": {
+                          "generalError":"Oops! Something was missed or entered incorrectly. Please check the form and try again.",
+                          "minimum":"Please enter complete value",
+                          "maxChar3":"Exceeded maximum 3 characters.",
+                          "maxChar12":"Exceeded maximum 12 characters.",
+                          "maxChar20":"Exceeded maximum 20 characters.",
+                          "decimalPlaces":"Exceeded 3 decimal places.",
+                          "numberLength":"Exceeded 12 characters.",
+                          "wholeNumber":"Whole number only.",
+                          "invoiceNo":"invoice No. is required.",
+                          "invoiceNoValidation":"Exceeded maximum 20 characters.",
+                          "invoiceDate":"invoice Date is required.",
+                          "invoiceDateValidation":"",
+                          "commodityQty":"Commodity quantity is required.",
+                          "invoiceAmount":"Invoice amount is required.",
+                          "amountValidation":"Please enter a valid amount.",
+                          "fileUploadErr": "File upload error",
+                          "fileSizeError": "File size cannot exceed 2 MB",
+                          "noFileError":"Please upload a file",
+                          "fileFormatErr":"Unsupported file format"
+                       },
+                       "confirmation": {
+                        "confirmationMessage": "Invoice added sucessfully!",
+                        "confirmationDetails": "Once you confirm the invoice, you won't be able to make any further edits",
+                        "backToEdit": "Go Back and Edit",
+                        "goToInvoice": "Confirm Invoice and View"
+                      }
+                    }
+                 },
+                 "permissions": {
+                    "hasDropdown": {
+                       "roles":[
+                          "DXP_DSC_TE"
+                       ]
+                    },
+                    "hasDownload": {
+                       "roles":[
+                          "DXP_DSC_Customer", "DXP_DSC_TE", "DXP_DSC_Commercial", "DXP_DSC_Operations"
+                       ]
+                    },
+                    "addInvoice": {
+                      "roles": ["DXP_DSC_Accounts"]
+                    }
+                 }
+              }
+           }
+        </script>
+          <script type="application/json" id="shipping-config">
+            {
+              "data": {
+                "componentId": "shipping",
+                "labels": {
+                  "shipping": "Shipping",
+                  "cargillDelivery": "Cargill Delivery",
+                  "pickUpSchedule":"Pickup Schedule",
+                  "customerPickup": "Customer Pickup",
+                  "approvedQuantity": "Approved Quantity",
+                  "approvedQuantityPlaceHolder": "Enter approved quantity",
+                  "tenderedInput": "Tendered Input",
+                  "tenderedInputPlaceholder": "Enter Tendered Input",
+                  "shipmentPeriod": "Shipment Period",
+                  "deliveryBasis": "Delivery Basis",
+                  "eta": "ETA/Arrival Date",
+                  "vesselName": "Vessel Name",
+                  "vesselNamePlaceholder": "Enter Vessel Name",
+                  "warehouse": "Warehouse",
+                  "warehousePlaceholder": "Enter Warehouse",
+                  "quantity": "Quantity (MT)",
+                  "deliveryDate": "Delivery Date",
+                  "addNewArrival": "Add New Arrival",
+                  "addPickUpSchedule": "Add PickUp Schedule",
+                  "requestedPickUpDate": "Requested Pickup Date",
+                  "status": "Status",
+                  "approvalStatus": "Approval Status",
+                  "commodity":"Commodity",
+                  "shipmentPeriodPlaceholder":"Enter text",
+                  "etaDate":"ETA Date",
+                  "etaTime":"ETA Time",
+                  "pickupDate": "Pickup Date",
+                  "pickupTime": "Pickup Time",
+                  "etaSelect":"Select",
+                  "checkInVehicleType": "Vehicle Type",
+                  "checkInModalHeading": "Check In",
+                  "scanCode": "Scan Your Code",
+                  "download": "Download Image",
+                  "print": "Print",
+                  "checkInVehicleNo": "Vehicle Number",
+                  "checkInVehicleNoPlaceholder": "Enter Vehicle Number",
+                  "checkInWeightIn": "Weight In",
+                  "checkInWeightInPlaceholder": "Enter Weight In",
+                  "checkInLocation": "Location",
+                  "checkInSubmit": "Save Check In",
+                  "checkInConfirmationMessage": "Check in added sucessfully!",
+                  "checkInConfirmationDetails": "Once you confirm the contract, you won't be able to make any further edits",
+                  "checkInGoBack": "Go Back and Edit",
+                  "checkInConfirmSubmit": "Confirm Check In and View",
+                  "contractId": "Contract ID",
+                  "commodityType":"Commodity Type",
+                  "commodityPlaceholder": "Select a commodity",
+                  "basisPlaceholder": "Select a basis",
+                  "vehicleTypePlaceholder": "Select Vehicle",
+                  "locationPlaceholder": "Select Location",
+                  "suggested": "Suggested by You",
+                  "suggestedByCustomer": "Suggested by Customer",
+                  "denied": "Denied by Cargill",
+                  "pendingCustomerResponse": "Pending Customer Response",
+                  "pendingCargillResponse": "Pending Cargill Response",
+                  "deleteSuccessErrorMsg": {
+                    "successMsg": "Your schedule deleted successfully.",
+                    "errorMsg": "Something went wrong. Please try again later."
+                  },
+                  "dropdownOptions": {
+                    "downloadQRCode": "Download QR code",
+                    "checkIn": "Check In",
+                    "downloadPickupSchedule": "Download Pickup Schedule",
+                    "edit": "Edit",
+                    "delete": "Delete"
+                  },
+                  "options" : {
+                    "deliveryBasis":[
+                      {
+                        "label": "Cargill Delivery",
+                        "value": "Cargill Delivery"
+                      },
+                      {
+                        "label": "Customer Pickup",
+                        "value": "Customer Pickup"
+                      }
+                    ],
+                    "vehicleType":[
+                      {
+                        "label": "Truck",
+                        "value": "Truck"
+                      },
+                      {
+                        "label": "Barge",
+                        "value": "Barge"
+                      }
+                    ],
+                    "location":[
+                      {
+                        "label": "SITV",
+                        "value": "SITV"
+                      },
+                      {
+                        "label": "VTN",
+                        "value": "VTN"
+                      }
+                    ]
+                  },
+                  "errorMessages": {
+                    "generalError": "Oops! Something was missed or entered incorrectly. Please check the form and try again.",
+                    "minimum": "Please enter a value greater than zero.",
+                    "maxChar3": "Exceeded maximum 3 characters.",
+                    "maxChar12": "Exceeded maximum 12 characters.",
+                    "maxChar30": "Exceeded maximum 30 characters.",
+                    "decimalPlaces": "Exceeded 3 decimal places.",
+                    "numberLength": "Exceeded 12 characters.",
+                    "wholeNumber": "Whole number only.",
+                    "commodity": "Commodity is required.",
+                    "approvedqty": "Approved Quantity is required.",
+                    "maxApprovedQty":"Quantity exceeds maximum approved quantity",
+                    "deliveryBasis": "Delivery Basis is required.",
+                    "shipmentPeriod": "Shipment Period is required.",
+                    "tenderedInput": "Tender Input is required.",
+                    "shipmentPeriodValidation": "You've exceeded the maximum 100 characters.",
+                    "vesselValidation": "You've exceeded the maximum 50 characters.",
+                    "etaDate": "ETA Date is required.",
+                    "etaTime": "ETA Time is required.",
+                    "pickupDateRqd": "Pickup date is required",
+                    "pickupTimeRqd": "Pickup time is required",
+                    "vehicleType": "Vehicle type is required",
+                    "vehicleNoInvalid":"Invalid Vehicle number",
+                    "vehicleNo": "Vehicle number is required",
+                    "location": "Location is required",
+                    "weightIn": "Weight in is required",
+                    "noArrival": "No arrival scheduled.",
+                    "noPickUp": "No pickups scheduled.",
+                    "noDeliveries": "No deliveries scheduled.",
+                    "dateValidation": "Please enter a valid date.",
+                    "etaDate":"ETA Date is required"
+                  },
+                  "confirmation": {
+                    "confirmationMessage": "Arrival has been saved!",
+                    "confirmationDetails": "Click on okay button to view the arrival ",
+                    "okButton": "Okay",
+                    "pickUpApprovalSuccess": "Successfully Updated the Approval Status",
+                    "proposeNewDateSuccess": "Successfully Updated the new Propose Date/Time",
+                    "checkInSuccess": "Order has been updated successfully"
+                  },
+                  "addArrivalHeader": "Add New Arrival",
+                  "changePickupHeader": "Propose New Time",
+                  "editArrivalHeader": "Edit Arrival Schedule",
+                  "changePickupButtonLabel": "Propose New Time?",
+                  "saveButtonLabel": "Save",
+                  "submitButtonLabel": "Submit",
+                  "userOptions": [
+                    {
+                      "displayValue": "downloadQrCode",
+                      "displayName": "Download QR Code"
+                    },
+                    {
+                      "displayValue": "checkin",
+                      "displayName": "Check In"
+                    },
+                    {
+                      "displayValue": "downloadPickupSchedule",
+                      "displayName": "Download Pickup Schedule"
+                    },
+                    {
+                      "displayValue": "edit",
+                      "displayName": "Edit"
+                    },
+                    {
+                      "displayValue": "delete",
+                      "displayName": "Delete"
+                    }
+                  ],
+                  "addOrEditPickupSchedule": {
+                    "addPickupScheduleHeader":"Add Pickup Schedule",
+                    "editPickupScheduleHeader": "Edit Pickup Schedule",
+                    "pickupDate": "Pickup Date",
+                    "pickupTime": "Pickup Time",
+                    "quantity":"Quantity",
+                    "authNumber": "Authorization Number",
+                    "allowedFormats": "XLS,DOC,JPG,PDF",
+                    "uploadFileLabel": "Upload File",
+                    "savePickupLabel":"Save Pickup",
+                    "datePlaceholder": "Select a Date",
+                    "authNumberPlaceHolder":"Enter authorisation number",
+                    "qtyPlaceholder":"Enter a quantity",
+                    "maxFileSize":"2097152",
+                    "errorMessages": {
+                    "generalError": "Oops! Something was missed or entered incorrectly. Please check the form and try again.",
+                    "pickupDateRqd": "Pickup date is required",
+                    "pickupTimeRqd": "Pickup time is empty / invalid",
+                    "qtyRequired" : "Quantity is required",
+                    "qtyExceeded" : "Pickup quantity cannot exceed approved quantity",
+                    "qtyMinimum": "Approved quantity should be more than '0'",
+                    "maxChar12": "Exceeded maximum 12 characters",
+                    "maxChar100": "Exceeded maximum 100 characters",
+                    "maxChar50":"Exceeded maximum 50 characters",
+                    "maxDecimal3":"Exceeded maximum 3 decimal places",
+                    "maxChar20":"Exceeded maximum 20 characters",
+                    "fileUploadErr": "File upload error",
+                    "fileSizeError": "File size cannot exceed 2 MB",
+                    "fileFormatErr": "Unsupported file format"
+                      },
+                    "confirmation": {
+                    "confirmationMessage": "Information saved",
+                    "okBtn": "OK"
+                    }
+                  },
+                  "approveDenyStatusOptions": [
+                    {
+                      "label": "Approve",
+                      "value": "Agree"
+                    },
+                    {
+                      "label": "Deny",
+                      "value": "DisAgree"
+                    }
+                  ],
+                  "approveStatusOptions": [
+                    {
+                      "label": "Approve",
+                      "value": "Agree"
+                    }
+                  ],
+                  "defaultOption":{
+                      "label": "Select",
+                      "value": "Select"
+                  }
+                },
+                "permissions": {
+                  "hasCargillDeliveryAccess": {
+                    "roles":["DXP_DSC_TE","DXP_DSC_Operations"]
+                    },
+                  "hasCustomerPickupAccess": {
+                    "roles":["DXP_DSC_Customer"]
+                    },
+                  "hasCheckInPermissionCustomerPickup": {
+                    "roles":["DXP_DSC_Operations"]
+                  },
+                  "hasCheckInPermissionCargillDelivery": {
+                    "roles":["DXP_DSC_Operations"]
+                  },
+                  "hasQRAccessCustomerPickup": {
+                    "roles":["DXP_DSC_TE","DXP_DSC_Operations", "DXP_DSC_Customer"]
+                  },
+                  "hasQRAccessCargillDelivery": {
+                    "roles":["DXP_DSC_TE","DXP_DSC_Operations", "DXP_DSC_Customer"]
+                  },
+                  "hasProposeNewPickUpAccessCustomerPickup": {
+                    "roles":["DXP_DSC_Customer"]
+                  },
+                  "hasApprovePickUpDateAccessCustomerPickup": {
+                    "roles":["DXP_DSC_TE","DXP_DSC_Operations"]
+                  },
+                  "hasDenyPickUpDateAccessCustomerPickup": {
+                    "roles":["DXP_DSC_Operations"]
+                  },
+                  "hasAddPickupscheduleCargillDelivery": {
+                    "roles":["DXP_DSC_TE","DXP_DSC_Operations"]
+                  },
+                  "hasAddPickupscheduleCustomerPickup": {
+                    "roles":["DXP_DSC_Customer"]
+                  },
+                  "hasEditPickupscheduleCargillDelivery": {
+                    "roles":["DXP_DSC_TE","DXP_DSC_Operations"]
+                  },
+                  "hasEditPickupscheduleCustomerPickup": {
+                    "roles":["DXP_DSC_Customer"]
+                  },
+                  "hasDeletePickupscheduleCargillDelivery": {
+                    "roles":["DXP_DSC_TE","DXP_DSC_Operations"]
+                  },
+                  "hasDeletePickupscheduleCustomerPickup": {
+                    "roles":["DXP_DSC_Customer"]
+                  },
+                  "hasEditArrivalAccess": {
+                    "roles":["DXP_DSC_TE","DXP_DSC_Operations"]
+                  },
+                  "hasAddArrivalAccess": {
+                    "roles":["DXP_DSC_TE","DXP_DSC_Operations"]
+                  },
+                  "hasDownloadPickupschedule": {
+                    "roles":["DXP_DSC_TE","DXP_DSC_Operations","DXP_DSC_Commercial","DXP_DSC_Accounts","DXP_DSC_Customer"]
+                  }
+                }
+              }
+            }
+        </script>
+          <script type="application/json" id="contract-config">
+            {
+              "data": {
+                "componentId": "contract",
+                "labels": {
+                  "contractFilter": {
+                    "filterHintCustomer": "Filter by Commodity or Contract Number",
+                    "filterHintCargill": "Filter by Commodity, Customer or Contract Number",
+                    "dashboardText": "Search for a Contract",
+                    "contractType": {
+                      "label": "All Contracts",
+                      "options": [
+                        {
+                          "label": "Sales Contracts",
+                          "value": "Sales"
+                        },
+                        {
+                          "label": "Service Contracts",
+                          "value": "Service"
+                        }
+                      ]
+                    },
+                    "contractStatus": {
+                      "label": "All Contracts",
+                      "options": [
+                        {
+                          "label": "All Status",
+                          "value": "All"
+                        },
+                        {
+                          "label": "Unsigned",
+                          "value": "Unsigned"
+                        },
+                        {
+                          "label": "Signed",
+                          "value": "Signed"
+                        },
+                        {
+                          "label": "Completed",
+                          "value": "Completed"
+                        }
+                      ]
+                    }
+                  },
+                  "contractList": {
+                    "sortBy": {
+                      "label": "Sort By",
+                      "options": [
+                        {
+                          "label": "Sort by Expiring Soonest",
+                          "value": "asc"
+                        },
+                        {
+                          "label": "Sort by Expiring Latest",
+                          "value": "desc"
+                        }
+                      ]
+                    },
+                    "contractTitle": "Viewing ## of ## contracts",
+                    "cakNo": "Cak No",
+                    "balanceStock": "Remaining",
+                    "expires": "Expires",
+                    "status": "Status",
+                    "noShipment": "No schedule Shipments",
+                    "shipment": "shipment arriving",
+                    "loadMore": "Load More Contracts",
+                    "allTypes": "All Types",
+                    "allStatuses": "All Statuses",
+                    "noContract": "There aren’t any contracts that match your search. Try adjusting your filters above."
+                  },
+                  "searchCustomer": {
+                    "searchCustomerHeader": "Select a Customer",
+                    "searchCustomer": "Search for a customer",
+                    "searchCustomerPlaceholder": "Begin typing a customer name",
+                    "searchCustomerContinue": "Continue",
+                    "errorMessages": {
+                      "generalError": "Oops! Something was missed or entered incorrectly. Please check the form and try again.",
+                      "searchCustomer": "Customer is required.",
+                      "validCustomer": "Please enter / select valid customer."
+                    }
+                  },
+                  "addContract": {
+                    "cakNo": "Cak No",
+                    "cakNoPlaceholder": "Enter Cak No",
+                    "addContract": "Add Contract",
+                    "addServiceContractButtonLabel": "Add Service Contract",
+                    "addServiceContractHeader": "Add Service Contract",
+                    "cakDate": "Cak Date",
+                    "cakDatePlaceholder": "Select a date",
+                    "commodity": "Commodity",
+                    "commodityPlaceholder": "Select a commodity",
+                    "totalContractQuantity": "Total Contract Quantity",
+                    "totalContractQuantityPlaceholder": "Enter a value in MT",
+                    "storageTerms": "Storage Terms",
+                    "storageTermsPlaceholder": "Enter Storage Terms",
+                    "contractTolerance": "Contract Tolerance",
+                    "contractTolerancePlaceholder": "Enter a perentage",
+                    "priceWeightUnit": "Price Weight Unit",
+                    "priceWeightholder": "Enter Price Weight",
+                    "packageType": "Package Type",
+                    "packageTypePlaceholder": "Select a type",
+                    "basis": "Basis",
+                    "basisPlaceholder": "Select",
+                    "contractPrice": "Contract Price",
+                    "contractPricePlaceholder": "Enter contract price",
+                    "currency": "Currency",
+                    "currencyPlaceholder": "Select a currency",
+                    "paymentTerms": "Payment Terms",
+                    "paymentTermsPlaceholder": "Enter Payment Terms",
+                    "contractExpiryDate": "Contract Expiry Date",
+                    "contractExpiryDatePlaceholder": "Select a date",
+                    "errorMessages": {
+                      "generalError": "Oops! Something was missed or entered incorrectly. Please check the form and try again.",
+                      "minimum": "Please enter complete value",
+                      "maxChar3": "Exceeded maximum 3 characters.",
+                      "maxChar12": "Exceeded maximum 12 characters.",
+                      "maxChar20": "Exceeded maximum 20 characters.",
+                      "decimalPlaces": "Exceeded 3 decimal places.",
+                      "numberLength": "Exceeded 12 characters.",
+                      "wholeNumber": "Whole number only.",
+                      "cakNo": "Cak No. is required.",
+                      "cakNoValidation": "Exceeded maximum 20 characters.",
+                      "cakNoinValid": "Cak No is not valid",
+                      "cakDate": "Cak Date is required.",
+                      "cakDateValidation": "",
+                      "commodity": "Commodity is required.",
+                      "totalContractQuantity": "Total Contract Quantity is required.",
+                      "storageTerms": "Storage Terms are required.",
+                      "storageTermsValidation": "You've exceeded the maximum 250 characters.",
+                      "contractTolerance": "Contract Tolerance is required.",
+                      "contractToleranceValidation": "Cannot exceed 100%.",
+                      "priceWeightUnit": "Price Weight Unit is required.",
+                      "priceWeightUnitValidation": "",
+                      "packageType": "Package Type is required.",
+                      "basis": "Basis is required.",
+                      "contractPrice": "Contract Price is required.",
+                      "currency": "Currency is required.",
+                      "paymentTerms": "Payment Terms are required.",
+                      "paymentTermsValidation": "You've exceeded the maximum 250 characters.",
+                      "contractExpiryDate": "Contract Expiry Date is required.",
+                      "contractExpiryDateValidation": "."
+                    },
+                    "confirmation": {
+                      "confirmationMessage": "Contracts added sucessfully!",
+                      "confirmationDetails": "Once you confirm the contract, you won't be able to make any further edits",
+                      "backToEdit": "Go Back and Edit",
+                      "goToContract": "Confirm Contract and View"
+                    },
+                    "options": {
+                      "commodity": [
+                        {
+                          "label": "Longan",
+                          "value": "longan"
+                        },
+                        {
+                          "label": "Oranges",
+                          "value": "oranges"
+                        },
+                        {
+                          "label": "Rice",
+                          "value": "rice"
+                        }
+                      ],
+                      "currency": [
+                      
+                        {
+                          "label": "VND",
+                          "value": "VND"
+                        },
+                        {
+                          "label": "USD",
+                          "value": "USD"
+                        }
+                      ],
+                      "packageType": [
+                        {
+                          "label": "In bulk",
+                          "value": "In bulk"
+                        },
+                        {
+                          "label": "In bags",
+                          "value": "In bags"
+                        }
+                      ],
+                      "basis": [
+                        {
+                          "label": "Customer pickup",
+                          "value": "Customer Pickup"
+                        },
+                        {
+                          "label": "Cargill delivery",
+                          "value": "Cargill Delivery"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "permissions": {
+                  "canAddService": {
+                    "roles": [
+                      "DXP_DSC_TE"
+                    ]
+                  },
+                  "isCustomerUserFilter": {
+                    "roles": ["DXP_DSC_Customer"]
+                  }
+                }
+              }
+            }
+        </script>
+        </div>
+        <div class="footer-wrapper">
+          <footer>
+            <ul class="footer-link-group">
+              <li>
+                <a href="/sitemap">Footer Information</a>
+              </li>
+              <li>
+                <a href="/sitemap">Sitemap</a>
+              </li>
+              <li>
+                <a href="/contact-us">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="/contact-us">Terms & Conditions </a>
+              </li>
+              <li>
+                <a href="/contact-us">Copyright Information</a>
+              </li>
+            </ul>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <div id="modalshell" class="modal-wrapper"></div>
+  </div>
+
+  <script type="text/javascript">
+
+    window.__APP_CONFIG__ = {
+      "baseUrlApp": "",
+      "lang": "en",
+      "notifications": {
+        "notificationList": {
+          "labels": {
+            "title": "{count} item needs your attention",
+            "title_plural": "{count} items need your attention",
+            "view_your_notifications": "View Your Notifications",
+            "see_all_notifications": "See All Notifications",
+            "hide_notifications": "Hide Notifications"
+          }
+        },
+        "notificationItem": {
+          "labels": {
+            "date": "Received on {date}"
+          }
+        },
+        "notificationBadge": {
+          "labels": {
+            "title": "Notifications"
+          }
+        },
+        "notificationDrawer": {
+          "labels": {
+            "title": "Notifications",
+            "backToTop": "Back to Top"
+          }
+        }
+      }
+    };
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+  <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico"> -->
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <title>Cargill - Market Information</title>
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    #root {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrapper {
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div class="site-wrapper">
+    <div class="body-wrapper">
+      <header class="body-wrapper--left">
+        <div data-componentid="GlobalNav" data-component="GlobalNav" data-config="GlobalNav-config" data-render="true"></div>
+        <script type="application/json" id="GlobalNav-config">
+            {
+                "data": {
+                  "componentId": "GlobalNav",
+                  "logo": {
+                    "href": "/",
+                    "title": "Go to Cargill.com",
+                    "target": "_self",
+                    "children": [
+                      {
+                        "type": "image",
+                        "image": {
+                          "src": "/logo.svg",
+                          "alt": "Go to Cargill.com",
+                          "height": 100,
+                          "width": 100
+                        }
+                      }
+                    ]
+                  },
+                  "items": [
+                    {
+                      "id": "1003",
+                      "type": "dashboard",
+                      "link": {
+                        "href": "/dashboard",
+                        "title": "Dashboard",
+                        "target": "_self",
+                        "children": [
+                          {
+                            "type": "label",
+                            "label": "Dashboard"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "id": "1002",
+                      "type": "contracts",
+                      "link": {
+                        "id": "contracts",
+                        "href": "/contracts",
+                        "title": "Contracts",
+                        "target": "_self",
+                        "children": [
+                          {
+                            "type": "label",
+                            "label": "Contracts"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "id": "2000",
+                      "type": "invoices",
+                      "link": {
+                       "id": "invoices",
+                        "href": "/invoices",
+                        "target": "_self",
+                        "title": "Invoices",
+                        "children": [
+                          {
+                            "type": "label",
+                            "label": "Invoices"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "id": "3000",
+                      "type": "inventory",
+                      "link": {
+                        "id": "inventory",
+                        "href": "/inventory",
+                        "title": "Inventory",
+                        "target": "_self",
+                        "children": [
+                          {
+                            "type": "label",
+                            "label": "Inventory"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "id": "3001",
+                      "type": "articles",
+                      "link": {
+                        "id": "articles",
+                        "href": "/articles",
+                        "title": "Articles",
+                        "target": "_self",
+                        "children": [
+                          {
+                            "type": "label",
+                            "label": "Market Information"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "id": "separator",
+                      "type": "separator"
+                    },
+                    {
+                      "id": "5000",
+                      "type": "user",
+                      "link": {
+                        "id": "user",
+                        "href": "/user",
+                        "title": "User",
+                        "target": "_self",
+                        "children": [
+                          {
+                            "type": "label",
+                            "label": "Camila Anderson"
+                          },
+                          {
+                            "type": "label",
+                            "label": "Goofd form Inc."
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "id": "6000",
+                      "type": "management",
+                      "link": {
+                        "id": "management",
+                        "href": "/management",
+                        "title": "Management",
+                        "target": "_self",
+                        "children": [
+                          {
+                            "type": "label",
+                            "label": "User Management"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "permissions": {
+                    "2000": {
+                      "roles": ["DXP_DSC_Accounts", "DXP_DSC_TE", "DXP_DSC_Operations"]
+                    }
+                  }
+                }
+              }
+        </script>
+    </header>
+      <div class="body-wrapper--main">
+        <div id="appshell" class="app-wrapper">
+          <div data-componentid="app" data-component="app" data-config="app-config" data-render="true"></div>
+          <script type="application/json" id="app-config">
+            {
+              "data": {
+                "componentId": "App",
+                "componentType": "nested",
+                "routes": {
+                  "/articles": [
+                    {
+                      "component": "articles",
+                      "configId": "articles-config"
+                    }]
+                }
+              }
+            }
+          </script>
+          <script type="application/json" id="articles-config">
+            {
+              "data": {
+                "componentId": "articles",
+                "labels": {
+                  "title": "Market Information",
+                  "sectionTitle": "Viewing ## of ## contracts",
+                  "sort": "Sort by Newest",
+                  "loadMore": "Load more stories",
+                  "noArticles":"No articles available",
+                  "totalStories": 50,
+                  "loadMoreCount": 3,
+                  "loadMorePath": "/bin/marketing",
+                  "isLoadMore": "true",
+                  "articles": [
+                        {  
+                          "date":"2018-05-31T00:00:00.000+05:30",
+                          "image":"/content/dam/we-retail-screens/we-retail-instore-logo.png",
+                          "alt-text":"flower",
+                          "text":"<p>111111111111111111111111111111111111111111111111111111111111111grtrgr� 7yu 777</p>\\\\r\\\\n",
+                          "title":"Flower"
+                      },
+                      {  
+                          "date":"2018-05-28T00:00:00.000+05:30",
+                          "alt-text":"volcano",
+                          "text":"<p>Volcano&nbsp;<b>text&nbsp;<i>gggg&nbsp;<u>ggggggggg rrgrg grgtrgrg</u></i></b></p>\\\\n",
+                          "title":"Volcano"
+                      },
+                      {  
+                          "date":"2018-05-25T00:00:00.000+05:30",
+                          "text":"<p><b>bgvyugbyuef yuwefhwyf&nbsp;<i>frefgfrgf&nbsp;<u>frefrerferferf</u></i></b></p>\\\\r\\\\n",
+                          "title":"1111111111"
+                      },
+                      {  
+                        "date":"2018-05-31T00:00:00.000+05:30",
+                        "image":"/content/dam/we-retail-screens/we-retail-instore-logo.png",
+                        "alt-text":"flower",
+                        "text":"<p>111111111111111111111111111111111111111111111111111111111111111grtrgr� 7yu 777</p>\\\\r\\\\n",
+                        "title":"Flower"
+                     },
+                     {  
+                        "date":"2018-05-28T00:00:00.000+05:30",
+                        "alt-text":"volcano",
+                        "text":"<p>Volcano&nbsp;<b>text&nbsp;<i>gggg&nbsp;<u>ggggggggg rrgrg grgtrgrg</u></i></b></p>\\\\n",
+                        "title":"Volcano"
+                     },
+                     {  
+                        "date":"2018-05-25T00:00:00.000+05:30",
+                        "text":"<p><b>bgvyugbyuef yuwefhwyf&nbsp;<i>frefgfrgf&nbsp;<u>frefrerferferf</u></i></b></p>\\\\r\\\\n",
+                        "title":"1111111111"
+                     }
+                  ]
+                }
+              }
+            }
+          </script>
+        </div>
+        <div class="footer-wrapper">
+          <footer>
+            <ul class="footer-link-group">
+              <li>
+                <a href="/sitemap">Footer Information</a>
+              </li>
+              <li>
+                <a href="/sitemap">Sitemap</a>
+              </li>
+              <li>
+                <a href="/contact-us">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="/contact-us">Terms & Conditions </a>
+              </li>
+              <li>
+                <a href="/contact-us">Copyright Information</a>
+              </li>
+            </ul>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <div id="modalshell" class="modal-wrapper"></div>
+  </div>
+
+  <script type="text/javascript">
+
+    window.__APP_CONFIG__ = {
+      "baseUrlApp": "",
+      "lang": "en",
+      "notifications": {
+        "notificationList": {
+          "labels": {
+            "title": "{count} item needs your attention",
+            "title_plural": "{count} items needs your attention",
+            "view_your_notifications": "View Your Notifications",
+            "see_all_notifications": "See All Notifications",
+            "hide_notifications": "Hide Notifications"
+          }
+        },
+        "notificationItem": {
+          "labels": {
+            "date": "Received on {date}"
+          }
+        },
+        "notificationBadge": {
+          "labels": {
+            "title": "Notifications"
+          }
+        },
+        "notificationDrawer": {
+          "labels": {
+            "title": "Notifications",
+            "backToTop": "Back to Top"
+          }
+        }
+      }
+    };
+  </script>
+</body>
+
+</html>

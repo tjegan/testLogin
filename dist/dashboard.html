@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+  <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico"> -->
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <title>Cargill - Dashboard</title>
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    #root {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrapper {
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div class="site-wrapper">
+    <div class="body-wrapper">
+      <div class="loader-wrapper" style="display: none;">
+          <div class="shroud">
+            <div class="ldr-ripple">
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      <header class="body-wrapper--left">
+        <div data-componentid="GlobalNav" data-component="GlobalNav" data-config="GlobalNav-config" data-render="true"></div>
+        <script type="application/json" id="GlobalNav-config">
+          {
+              "data": {
+                "componentId": "GlobalNav",
+                "logo": {
+                  "href": "/",
+                  "title": "Go to Cargill.com",
+                  "target": "_self",
+                  "children": [
+                    {
+                      "type": "image",
+                      "image": {
+                        "src": "/logo.svg",
+                        "alt": "Go to Cargill.com",
+                        "height": 100,
+                        "width": 100
+                      }
+                    }
+                  ]
+                },
+                "items": [
+                  {
+                    "id": "1003",
+                    "type": "dashboard",
+                    "link": {
+                      "href": "/dashboard",
+                      "title": "Dashboard",
+                      "target": "_self",
+                      "children": [
+                        {
+                          "type": "label",
+                          "label": "Dashboard"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "1002",
+                    "type": "contracts",
+                    "link": {
+                      "id": "contracts",
+                      "href": "/contracts",
+                      "title": "Contracts",
+                      "target": "_self",
+                      "children": [
+                        {
+                          "type": "label",
+                          "label": "Contracts"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "2000",
+                    "type": "invoices",
+                    "link": {
+                     "id": "invoices",
+                      "href": "/invoices",
+                      "target": "_self",
+                      "title": "Invoices",
+                      "children": [
+                        {
+                          "type": "label",
+                          "label": "Invoices"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "3000",
+                    "type": "inventory",
+                    "link": {
+                      "id": "inventory",
+                      "href": "/inventory",
+                      "title": "Inventory",
+                      "target": "_self",
+                      "children": [
+                        {
+                          "type": "label",
+                          "label": "Inventory"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "3001",
+                    "type": "articles",
+                    "link": {
+                      "id": "articles",
+                      "href": "/articles",
+                      "title": "Articles",
+                      "target": "_self",
+                      "children": [
+                        {
+                          "type": "label",
+                          "label": "Market Information"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "separator",
+                    "type": "separator"
+                  },
+                  {
+                    "id": "5000",
+                    "type": "user",
+                    "link": {
+                      "id": "user",
+                      "href": "/user",
+                      "title": "User",
+                      "target": "_self",
+                      "children": [
+                        {
+                          "type": "label",
+                          "label": "Camila Anderson"
+                        },
+                        {
+                          "type": "label",
+                          "label": "Goofd form Inc."
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "id": "6000",
+                    "type": "management",
+                    "link": {
+                      "id": "management",
+                      "href": "/management",
+                      "title": "Management",
+                      "target": "_self",
+                      "children": [
+                        {
+                          "type": "label",
+                          "label": "User Management"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "permissions": {
+                  "2000": {
+                    "roles": ["DXP_DSC_Accounts", "DXP_DSC_TE", "DXP_DSC_Operations"]
+                  }
+                }
+              }
+            }
+      </script>
+    </header>
+      <div class="body-wrapper--main">
+      <div id="appshell" class="app-wrapper">
+        <div data-componentid="app" data-component="app" data-config="app-config" data-render="true"></div>
+          <script type="application/json" id="app-config">
+            {
+              "data": {
+                "componentId": "App",
+                "componentType": "nested",
+                "routes": {
+                  "/dashboard": [
+                  {
+                    "component": "welcomemessage",
+                    "configId": "welcomemessage-config"
+                  },
+                  {
+                    "component": "notification",
+                    "configId": "notification-config"
+                  },
+                  {
+                    "component": "contract",
+                    "configId": "contract-config"
+                  }]
+                }
+              }
+            }
+          </script>
+          <script type="application/json" id="welcomemessage-config">
+            {
+              "data": {
+                "componentId": "welcomemessage",
+                "labels": {
+                  "header": "Welcome back, "
+                  }
+                }
+              }
+          </script>
+          <script type="application/json" id="notification-config">
+            {
+              "data": {
+                "componentId": "notification",
+                "labels": {}
+                }
+              }
+          </script>
+          <script type="application/json" id="contract-config">
+               {
+              "data": {
+                "componentId": "contract",
+                "labels": {
+                  "contractFilter": {
+                    "filterHintCustomer": "Filter by Commodity or Contract Number",
+                    "filterHintCargill": "Filter by Commodity, Customer or Contract Number",
+                    "dashboardText": "Search for a Contract",
+                    "contractType": {
+                      "label": "All Contracts",
+                      "options": [
+                        {
+                          "label": "Sales Contracts",
+                          "value": "Sales"
+                        },
+                        {
+                          "label": "Service Contracts",
+                          "value": "Service"
+                        }
+                      ]
+                    },
+                    "contractStatus": {
+                      "label": "All Contracts",
+                      "options": [
+                        {
+                          "label": "All Status",
+                          "value": "All"
+                        },
+                        {
+                          "label": "Unsigned",
+                          "value": "Unsigned"
+                        },
+                        {
+                          "label": "Signed",
+                          "value": "Signed"
+                        },
+                        {
+                          "label": "Completed",
+                          "value": "Completed"
+                        }
+                      ]
+                    }
+                  },
+                  "contractList": {
+                    "sortBy": {
+                      "label": "Sort By",
+                      "options": [
+                        {
+                          "label": "Sort by Expiring Soonest",
+                          "value": "sort-by-expiring-soonest"
+                        },
+                        {
+                          "label": "Sort by Expiring Latest",
+                          "value": "sort-by-expiring-latest"
+                        }
+                      ]
+                    },
+                    "contractTitle": "Viewing ## of ## contracts",
+                    "cakNo": "Cak No",
+                    "balanceStock": "Remaining",
+                    "expires": "Expires",
+                    "status": "Status",
+                    "noShipment": "No schedule Shipments",
+                    "shipment": "shipment arriving",
+                    "loadMore": "Load More Contracts",
+                    "allTypes": "All Types",
+                    "allStatuses": "All Statuses",
+                    "noContract": "There aren’t any contracts that match your search. Try adjusting your filters above."
+                  },
+                  "searchCustomer": {
+                    "searchCustomerHeader": "Select a Customer",
+                    "searchCustomer": "Search for a customer",
+                    "searchCustomerPlaceholder": "Begin typing a customer name",
+                    "searchCustomerContinue": "Continue",
+                    "errorMessages": {
+                      "generalError": "Oops! Something was missed or entered incorrectly. Please check the form and try again.",
+                      "searchCustomer": "Customer is required."
+                    }
+                  },
+                  "addContract": {
+                    "cakNo": "Cak No",
+                    "cakNoPlaceholder": "Enter Cak No",
+                    "addContract": "Add Contract",
+                    "addServiceContractButtonLabel": "Add Service Contract",
+                    "addServiceContractHeader": "Add Service Contract",
+                    "cakDate": "Cak Date",
+                    "cakDatePlaceholder": "Select a date",
+                    "commodity": "Commodity",
+                    "commodityPlaceholder": "Select a commodity",
+                    "totalContractQuantity": "Total Contract Quantity",
+                    "totalContractQuantityPlaceholder": "Enter a value in MT",
+                    "storageTerms": "Storage Terms",
+                    "storageTermsPlaceholder": "Enter Storage Terms",
+                    "contractTolerance": "Contract Tolerance",
+                    "contractTolerancePlaceholder": "Enter a perentage",
+                    "priceWeightUnit": "Price Weight Unit",
+                    "priceWeightholder": "Enter Price Weight",
+                    "packageType": "Package Type",
+                    "packageTypePlaceholder": "Select a type",
+                    "basis": "Basis",
+                    "basisPlaceholder": "Select",
+                    "contractPrice": "Contract Price",
+                    "contractPricePlaceholder": "Enter contract price",
+                    "currency": "Currency",
+                    "currencyPlaceholder": "Select a currency",
+                    "paymentTerms": "Payment Terms",
+                    "paymentTermsPlaceholder": "Enter Payment Terms",
+                    "contractExpiryDate": "Contract Expiry Date",
+                    "contractExpiryDatePlaceholder": "Select a date",
+                    "errorMessages": {
+                      "generalError": "Oops! Something was missed or entered incorrectly. Please check the form and try again.",
+                      "minimum": "Please enter complete value",
+                      "maxChar3": "Exceeded maximum 3 characters.",
+                      "maxChar12": "Exceeded maximum 12 characters.",
+                      "maxChar20": "Exceeded maximum 20 characters.",
+                      "decimalPlaces": "Exceeded 3 decimal places.",
+                      "numberLength": "Exceeded 12 characters.",
+                      "wholeNumber": "Whole number only.",
+                      "cakNo": "Cak No. is required.",
+                      "cakNoValidation": "Exceeded maximum 20 characters.",
+                      "cakDate": "Cak Date is required.",
+                      "cakDateValidation": "",
+                      "commodity": "Commodity is required.",
+                      "totalContractQuantity": "Total Contract Quantity is required.",
+                      "storageTerms": "Storage Terms are required.",
+                      "storageTermsValidation": "You've exceeded the maximum 250 characters.",
+                      "contractTolerance": "Contract Tolerance is required.",
+                      "contractToleranceValidation": "Cannot exceed 100%.",
+                      "priceWeightUnit": "Price Weight Unit is required.",
+                      "priceWeightUnitValidation": "",
+                      "packageType": "Package Type is required.",
+                      "basis": "Basis is required.",
+                      "contractPrice": "Contract Price is required.",
+                      "currency": "Currency is required.",
+                      "paymentTerms": "Payment Terms are required.",
+                      "paymentTermsValidation": "You've exceeded the maximum 250 characters.",
+                      "contractExpiryDate": "Contract Expiry Date is required.",
+                      "contractExpiryDateValidation": "."
+                    },
+                    "confirmation": {
+                      "confirmationMessage": "Contracts added sucessfully!",
+                      "confirmationDetails": "Once you confirm the contract, you won't be able to make any further edits",
+                      "backToEdit": "Go Back and Edit",
+                      "goToContract": "Confirm Contract and View"
+                    },
+                    "options": {
+                      "commodity": [
+                        {
+                          "label": "Longan",
+                          "value": "longan"
+                        },
+                        {
+                          "label": "Oranges",
+                          "value": "oranges"
+                        },
+                        {
+                          "label": "Rice",
+                          "value": "rice"
+                        }
+                      ],
+                      "currency": [
+                        {
+                          "label": "USD",
+                          "value": "USD"
+                        },
+                        {
+                          "label": "VND",
+                          "value": "VND"
+                        }
+                      ],
+                      "packageType": [
+                        {
+                          "label": "In bulk",
+                          "value": "BULK"
+                        },
+                        {
+                          "label": "In bags",
+                          "value": "BAGS"
+                        }
+                      ],
+                      "basis": [
+                        {
+                          "label": "Customer pickup",
+                          "value": "pickup"
+                        },
+                        {
+                          "label": "Cargill delivery",
+                          "value": "delivery"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "permissions": {
+                  "canAddService": {
+                    "roles": [
+                      "DXP_DSC_TE"
+                    ]
+                  },
+                  "isCustomerUserFilter": {
+                    "roles": ["DXP_DSC_Customer"]
+                  }
+                }
+              }
+            }
+          </script>
+
+        </div>
+        <div class="footer-wrapper">
+          <footer>
+            <ul class="footer-link-group">
+              <li>
+                <a href="/sitemap">Footer Information</a>
+              </li>
+              <li>
+                <a href="/sitemap">Sitemap</a>
+              </li>
+              <li>
+                <a href="/contact-us">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="/contact-us">Terms & Conditions </a>
+              </li>
+              <li>
+                <a href="/contact-us">Copyright Information</a>
+              </li>
+            </ul>
+          </footer>
+        </div>
+
+      </div>
+      <div id="modalshell" class="modal-wrapper"></div>
+    </div>
+
+    <script type="text/javascript">
+      window.__APP_CONFIG__ = {
+        "baseUrlApp": "",
+        "lang": "en",
+        "notifications": {
+          "notificationList": {
+            "labels": {
+              "title": "{count} item needs your attention",
+              "title_plural": "{count} items needs your attention",
+              "view_your_notifications": "View Your Notifications",
+              "see_all_notifications": "See All Notifications",
+              "hide_notifications": "Hide Notifications"
+            }
+          },
+          "notificationItem": {
+            "labels": {
+              "date": "Received on {date}"
+            }
+          },
+          "notificationBadge": {
+            "labels": {
+              "title": "Notifications"
+            }
+          },
+          "notificationDrawer": {
+            "labels": {
+              "title": "Notifications",
+              "backToTop": "Back to Top"
+            }
+          }
+        }
+      };
+    </script>
+</body>
+
+</html>
