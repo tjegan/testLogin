@@ -46,6 +46,9 @@
       flex: 1;
     }
   </style>
+  
+<link rel="stylesheet" href="css/commons.css" type="text/css">
+<link rel="stylesheet" href="css/login.css" type="text/css">
 </head>
 
 <body>
@@ -112,12 +115,37 @@
   </div>
 
 
-  <script type="text/javascript">
+   <script type="text/javascript">
     window.__INITIAL_STATE__ = {};
     window.__APP_CONFIG__ = {
-      "lang": "en"
-    };
+
+server: {
+    host: "https://cargill-stage2.adobemsbasic.com",
+    path: '/agriculture/en/pages'
+  },
+  oktaOIDC: {
+    client_id: '0oaf5ppegfOibyF1r0h7',
+    issuer: 'https://cargillcustomer-uat.oktapreview.com/oauth2/ausf5swlrsgiHV3z70h7',
+    loginUrl: 'https://cargillcustomer-uat.oktapreview.com',
+    redirect_uri: '/login/implicit/callback',
+    scope: ['openid', 'email', 'profile']
+  },
+  login: {
+    entry: '/login',
+    redirectAfterLogin: '/dashboard',
+	redirectAfterLogout: '/login' 
+  },
+	locale: {
+		lang: "en",
+		country: 'US'
+	  },
+		region: 'VNGOSC'
+   };
   </script>
+   
+    
+<script type="text/javascript" src="js/commons.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
 
 </body>
 
