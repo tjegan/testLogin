@@ -144,13 +144,13 @@ server: {
     scope: ['openid', 'profile', 'groups'],
 	activeSession: 'ACTIVE',
     state: 'DSCApp',
-    nonce: 'DSC'
+    nonce: 'DSC',
+	redirectAfterCargillLogin: 'loginProgress.html'
   },
   login: {
     entry: '/login.html',
     redirectAfterLogin: '/contracts.html',
-    redirectAfterLogout: '/login.html',
-	redirectAfterCargillLogin: 'loginProgress.html'
+    redirectAfterLogout: '/login.html'
   },
   logoutLabel: 'Logout',
   contracts: {

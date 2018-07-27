@@ -74,13 +74,13 @@
                     },
                     "en": {
                       "primaryauth.submit": "Log In",
-                      "needhelp": "Need help signing in?",
+                      "needhelp": "Need help signing in? or Cargill Employees/Contractors Click Here",
                       "forgotpassword": "Forgot password?",
                       "help": "Help",
                       "retry": "Retry",
                       "remember" : "Remember me",
                       "goback" : "Back to Sign In",
-                      "cargillSignIn": "Sign In with Cargill Id",
+                      "cargillSignIn": "Cargill Employees Click Here to Login",
                       "primaryauth.submit": "Log In",
                       "primaryauth.username.placeholder": "Username",
                       "primaryauth.password.placeholder": "Password",
@@ -144,13 +144,14 @@ server: {
     scope: ['openid', 'profile', 'groups'],
 	activeSession: 'ACTIVE',
     state: 'DSCApp',
-    nonce: 'DSC'
+    nonce: 'DSC',
+	redirectAfterCargillLogin: 'loginProgress.html'
   },
   login: {
     entry: '/login.html',
     redirectAfterLogin: '/contracts.html',
-    redirectAfterLogout: '/login.html',
-	redirectAfterCargillLogin: 'loginProgress.html'
+    redirectAfterLogout: '/login.html'
+
   },
   logoutLabel: 'Logout',
   contracts: {
